@@ -21,10 +21,33 @@ module.exports.signup = async function (req, res) {
         role: req.body.role
     });
 
-    const res = await validUser.save();
-    console.log('res', res);
+    const resp = await validUser.save();
+    console.log('res', resp);
+    res.redirect('/auth/registration');
 }
 
-module.exports.checkLogin = function (req, res) {
-    console.log(req.body);
+module.exports.checkLogin = async function (req, res) {
+    const candidate = await User.findOne({
+        email: req.body.email
+    });
+    console.log('CANDIDATE', candidate);
+    if (candidate) {
+        const passwordResult = candidate.password;
+        if (passwordResult) {
+            req.session.nickname = candidate.nickname;
+            req.session.id = candidate._id;
+            req.session.role = candidate.role;
+            res.status(200).json({
+                message: 'Вы вошли на сайт.'
+            });
+        } else {
+            res.status(401).json({
+                message: 'Логин или пароль не совпадают'
+            });
+        }
+    } else {
+        res.status(404).json({
+            message: 'Пользователь не зарегистрирован'
+        });
+    }
 }
