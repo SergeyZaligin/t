@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,6 +24,15 @@ mongoose
   .catch(error => console.log(error));
 
 var app = express();
+
+app.use(session({
+  secret: 'foo',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    url: 'mongodb://localhost/agencytoptest'
+  })
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
