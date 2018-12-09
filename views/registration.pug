@@ -3,3 +3,24 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(method="post", action="/auth/registration")#signup-form
+    div.form-control
+      label(for="nickname") Имя на сайте
+      input(id="nickname", type="text", name="nickname")
+    div.form-control
+      label(for="email") Email
+      input(id="email", type="text", name="email")
+    div.form-control
+      label(for="password") Пароль
+      input(id="password", type="password", name="password")
+    div.form-control
+      label(for="repassword") Повторить пароль
+      input(id="repassword", type="password", name="repassword")
+    div.form-control
+      label(for="role") Роль на сайте
+      select(id="role", name="role")
+        option(value="register", checked) Пользователь  
+        option(value="aspirant") Соискатель
+        option(value="recruter") Агентство
+    div.form-control
+      button(type="submit") Зарегистрироваться
