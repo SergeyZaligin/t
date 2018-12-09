@@ -6,4 +6,6 @@ var controller = require('../controllers/auth');
 router.get('/registration', controller.registration);
 router.get('/login', controller.login);
 
+router.post('/registration', controller.signup);
+router.post('/login', controller.checklogin);
 module.exports = router;

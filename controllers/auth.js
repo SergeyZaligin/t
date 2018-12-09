@@ -9,3 +9,11 @@ module.exports.login = function (req, res) {
         title: 'login'
     });
 }
+
+module.exports.signup = function (req, res) {
+    console.log(req.body);
+}
+
+module.exports.checkLogin = function (req, res) {
+
+}
