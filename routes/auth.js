@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var controller = require('../controllers/auth');
+const express = require('express');
+const router = express.Router();
+const controller = require('../controllers/auth');
 
 /* GET home page. */
 router.get('/registration', controller.registration);

@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var controller = require('../controllers/index');
-var guardRoutes = require('../middleware/guardRoutes');
+const express = require('express');
+const router = express.Router();
+const controller = require('../controllers/index');
+const guardRoutes = require('../middleware/guardRoutes');
 
 /* GET home page. */
 router.get('/', controller.index);

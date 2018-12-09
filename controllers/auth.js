@@ -1,18 +1,18 @@
 const User = require('../models/User');
 
-module.exports.registration = function (req, res) {
+module.exports.registration = (req, res) => {
     res.render('registration', {
         title: 'registration'
     });
 }
 
-module.exports.login = function (req, res) {
+module.exports.login = (req, res) => {
     res.render('login', {
         title: 'login'
     });
 }
 
-module.exports.signup = async function (req, res) {
+module.exports.signup = async (req, res) => {
 
     const validUser = new User({
         nickname: req.body.nickname,
@@ -26,11 +26,14 @@ module.exports.signup = async function (req, res) {
     res.redirect('/auth/registration');
 }
 
-module.exports.checkLogin = async function (req, res) {
+module.exports.checkLogin = async (req, res) => {
+
     const candidate = await User.findOne({
         email: req.body.email
     });
+
     console.log('CANDIDATE', candidate);
+
     if (candidate) {
         const passwordResult = candidate.password;
         if (passwordResult) {
