@@ -34,7 +34,7 @@ app.use(session({
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
-    url: 'mongodb://localhost/agencytoptest'
+    url: process.env.MONGO_URL
   })
 }));
 
