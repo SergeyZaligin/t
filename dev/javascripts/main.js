@@ -15,7 +15,8 @@
     /*beginCommonFunction*/
     const $ = $;
     /*endCommonFunction*/
-
+    console.log('JQuery works!!!', $('body'));
+    $('body').hide();
     /*beginSignupFormHandler*/
     //console.log(global.document.getElementById('signup-form'));
     const SignupHandler = new App.SignupHandler(FORM_SIGNUP_SELECTOR);
@@ -29,13 +30,13 @@
     /*endLoginFormHandler*/
 
     /*beginArticleCategoryHandler*/
-    const ArticleCategoryHandler = new App.ArticleCategoryHandler(ARTICLE_CATEGORY_ADD_FORM_SELECTOR);
-    ArticleCategoryHandler.init();
+    // const ArticleCategoryHandler = new App.ArticleCategoryHandler(ARTICLE_CATEGORY_ADD_FORM_SELECTOR);
+    // ArticleCategoryHandler.init();
     /*endArticleCategoryHandler*/
 
     /*beginArticleCategoryUpdateHandler*/
-    const ArticleCategoryUpdateHandler = new App.ArticleCategoryUpdateHandler(ARTICLE_CATEGORY_UPDATE_FORM_SELECTOR);
-    ArticleCategoryUpdateHandler.init();
+    // const ArticleCategoryUpdateHandler = new App.ArticleCategoryUpdateHandler(ARTICLE_CATEGORY_UPDATE_FORM_SELECTOR);
+    // ArticleCategoryUpdateHandler.init();
     /*endArticleCategoryUpdateHandler*/
 
 })(window, jQuery);
